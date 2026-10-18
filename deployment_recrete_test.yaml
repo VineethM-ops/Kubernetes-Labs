@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: vinutest
+  name: vinutest
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vinutest
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: vinutest
+    spec:
+      containers:
+      - image: httpd
+        name: httpd
+        resources: {}
+status: {}
